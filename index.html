@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siva Kanth | AI Projects</title>
+  <meta name="description" content="Sr Data Scientist building AI products from 0 to 1. Full-stack AI applications that are observable, auditable, and production-ready.">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-primary: #FAF9F6;
+      --bg-secondary: #F5F4F0;
+      --bg-card: #FFFFFF;
+      --text-primary: #1a1a1a;
+      --text-secondary: #555555;
+      --text-muted: #888888;
+      --accent: #D4836D;
+      --accent-hover: #C06B55;
+      --border: #E8E6E1;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --shadow-lg: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0f0f10;
+      --bg-secondary: #1a1a1c;
+      --bg-card: #1f1f22;
+      --text-primary: #f5f5f5;
+      --text-secondary: #a0a0a0;
+      --text-muted: #707070;
+      --border: #2a2a2d;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
+      --shadow-lg: 0 8px 30px rgba(0,0,0,0.4);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+      backdrop-filter: blur(10px);
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .header-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .header-sep {
+      color: var(--text-muted);
+    }
+
+    .header-location, .header-email {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .header-email {
+      text-decoration: none;
+    }
+
+    .header-email:hover {
+      color: var(--accent);
+    }
+
+    .theme-toggle {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+    }
+
+    .theme-toggle svg {
+      width: 18px;
+      height: 18px;
+      color: var(--text-secondary);
+    }
+
+    .moon-icon { display: block; }
+    .sun-icon { display: none; }
+    [data-theme="dark"] .moon-icon { display: none; }
+    [data-theme="dark"] .sun-icon { display: block; }
+
+    /* Main Content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Intro Section */
+    .intro {
+      padding: 60px 0 40px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .intro-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .intro-text {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .capability-pills {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .capability-pill {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      padding: 0;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .capability-pill:not(:last-child)::after {
+      content: '·';
+      margin-left: 8px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 900px) {
+      .capability-pills {
+        flex-wrap: wrap;
+      }
+    }
+
+    /* Tech Skills - Collapsed Preview */
+    .tech-preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .tech-preview-item {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .tech-preview-item:not(:last-child)::after {
+      content: '·';
+      margin-left: 8px;
+      color: var(--border);
+    }
+
+    .tech-expand-btn {
+      font-size: 0.8rem;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent);
+      padding: 4px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-left: 4px;
+    }
+
+    .tech-expand-btn:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* Tech Skills - Expanded Full View */
+    .tech-full {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+      opacity: 0;
+      padding: 0 20px;
+    }
+
+    .tech-full.expanded {
+      max-height: none;
+      opacity: 1;
+      padding: 32px 20px;
+    }
+
+    .tech-full-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 36px 36px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .tech-full-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tech-full-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .tech-close-btn {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: var(--bg-secondary);
+      border: none;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tech-close-btn:hover {
+      color: var(--text-primary);
+      background: var(--border);
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 28px 20px;
+    }
+
+    @media (max-width: 1200px) {
+      .tech-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .tech-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .tech-group {
+      padding: 0;
+      text-align: center;
+    }
+
+    .tech-group-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .tech-group-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .tech-tag {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      background: var(--bg-primary);
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+      .tech-full-inner {
+        padding: 20px;
+      }
+    }
+
+    /* Project Section */
+    .project {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .project-badge {
+      font-size: 0.7rem;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-live {
+      background: rgba(46, 125, 50, 0.12);
+      color: #2E7D32;
+    }
+
+    [data-theme="dark"] .badge-live {
+      background: rgba(74, 222, 128, 0.15);
+      color: #4ade80;
+    }
+
+    .badge-poc {
+      background: rgba(212, 131, 109, 0.15);
+      color: var(--accent);
+    }
+
+    .badge-demo {
+      background: rgba(59, 130, 246, 0.12);
+      color: #3B82F6;
+    }
+
+    [data-theme="dark"] .badge-demo {
+      background: rgba(96, 165, 250, 0.15);
+      color: #60A5FA;
+    }
+
+    .project-tagline {
+      font-size: 1.15rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .project-summary {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      max-width: 900px;
+    }
+
+    /* Carousel */
+    .carousel-container {
+      margin-bottom: 28px;
+    }
+
+    .carousel-main {
+      width: 100%;
+      aspect-ratio: 16/9;
+      max-height: 500px;
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      position: relative;
+      border: 1px solid var(--border);
+    }
+
+    .carousel-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: var(--bg-secondary);
+    }
+
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .carousel-container:hover .carousel-nav {
+      opacity: 1;
+    }
+
+    .carousel-nav:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .carousel-nav:hover svg {
+      color: white;
+    }
+
+    .carousel-nav svg {
+      width: 16px;
+      height: 16px;
+      color: var(--text-secondary);
+    }
+
+    .carousel-nav.prev { left: 12px; }
+    .carousel-nav.next { right: 12px; }
+
+    .carousel-counter {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 12px;
+      z-index: 2;
+    }
+
+    .slide-caption {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      background: rgba(0,0,0,0.75);
+      color: white;
+      font-size: 0.85rem;
+      padding: 10px 14px;
+      border-radius: 8px;
+      z-index: 1;
+      max-width: 80%;
+    }
+
+    .carousel-thumbnails {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .carousel-thumb {
+      flex-shrink: 0;
+      width: 80px;
+      height: 50px;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      opacity: 0.6;
+      transition: all 0.2s;
+    }
+
+    .carousel-thumb:hover {
+      opacity: 0.9;
+    }
+
+    .carousel-thumb.active {
+      border-color: var(--accent);
+      opacity: 1;
+    }
+
+    .carousel-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Project Details */
+    .project-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 24px;
+    }
+
+    .project-points h4 {
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .project-points ul {
+      list-style: none;
+    }
+
+    .project-points li {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      padding: 8px 0;
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .project-points li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .project-tech h4 {
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tech-tag {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: var(--bg-secondary);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 60px 24px;
+      border-top: 1px solid var(--border);
+      background: var(--bg-secondary);
+    }
+
+    .footer-cta {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .footer-note {
+      font-size: 0.95rem;
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .footer-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      padding: 12px 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.2s;
+      margin-bottom: 24px;
+    }
+
+    .footer-email:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .footer-email svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .footer-copyright {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .header-left {
+        justify-content: center;
+      }
+
+      .intro {
+        padding: 40px 0 30px;
+      }
+
+      .intro-title {
+        font-size: 1.3rem;
+      }
+
+      .project-details {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .carousel-thumb {
+        width: 60px;
+        height: 40px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-left {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .header-sep {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div class="header-left">
+        <span class="header-name">Siva Kanth</span>
+        <span class="header-sep">·</span>
+        <span class="header-location">Seattle, WA</span>
+        <span class="header-sep">·</span>
+        <a href="mailto:sivakanth.work@gmail.com" class="header-email">sivakanth.work@gmail.com</a>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Intro -->
+    <section class="intro">
+      <h1 class="intro-title">Obsessively curious. Relentlessly building.</h1>
+      <p class="intro-text">
+        Hard problems + AI + weekends = my portfolio.<br>
+        Deep thinker. Entrepreneurial by nature. I build until it works.
+      </p>
+      <div class="capability-pills">
+        <span class="capability-pill">Realtime Voice Agents</span>
+        <span class="capability-pill">Advanced RAG · AI Agents</span>
+        <span class="capability-pill">Conversational AI</span>
+        <span class="capability-pill">Image Generation</span>
+        <span class="capability-pill">LLM Fine-Tuning · Self-hosted SLMs</span>
+      </div>
+
+      <!-- Collapsed preview -->
+      <div class="tech-preview">
+        <span class="tech-preview-item">Agentic AI</span>
+        <span class="tech-preview-item">LangGraph</span>
+        <span class="tech-preview-item">Transformers</span>
+        <span class="tech-preview-item">Llama</span>
+        <span class="tech-preview-item">Cross Encoders</span>
+        <span class="tech-preview-item">Vector DBs</span>
+        <span class="tech-preview-item">Embeddings</span>
+        <span class="tech-preview-item">OpenAI</span>
+        <span class="tech-preview-item">Anthropic</span>
+        <button class="tech-expand-btn" onclick="toggleTechStack()">+54 more</button>
+      </div>
+
+      <!-- Expanded full view -->
+      <div class="tech-full" id="techFull">
+        <div class="tech-full-inner">
+          <div class="tech-full-header">
+            <span class="tech-full-title">Full Tech Stack</span>
+            <button class="tech-close-btn" onclick="toggleTechStack()">Close</button>
+          </div>
+          <div class="tech-grid">
+            <div class="tech-group">
+              <div class="tech-group-label">Languages</div>
+              <div class="tech-group-items">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">PySpark</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <div class="tech-group-label">LLM Providers</div>
+              <div class="tech-group-items">
+                <span class="tech-tag">OpenAI</span>
+                <span class="tech-tag">Anthropic</span>
+                <span class="tech-tag">LiteLLM</span>
+                <span class="tech-tag">Ollama</span>
+                <span class="tech-tag">Llama 3.2</span>
+                <span class="tech-tag">GPT-4</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <div class="tech-group-label">GenAI & Agents</div>
+              <div class="tech-group-items">
+                <span class="tech-tag">Agentic AI (MCP, Tool Use)</span>
+                <span class="tech-tag">Fine-tuning (LoRA, QLoRA)</span>
+                <span class="tech-tag">RAG Pipelines</span>
+                <span class="tech-tag">LangGraph</span>
+                <span class="tech-tag">Prompt Engineering</span>
+                <span class="tech-tag">Multimodal AI</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <div class="tech-group-label">Voice & Realtime</div>
+              <div class="tech-group-items">
+                <span class="tech-tag">OpenAI Realtime API</span>
+                <span class="tech-tag">Twilio WebSocket</span>
+                <span class="tech-tag">STT-LLM-TTS</span>
+                <span class="tech-tag">Google Calendar API</span>
+                <span class="tech-tag">Server-Sent Events</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <div class="tech-group-label">Embeddings & Search</div>
+              <div class="tech-group-items">
+                <span class="tech-tag">text-embedding-3-small</span>
+                <span class="tech-tag">MiniLM-L6</span>
+                <span class="tech-tag">Cross-Encoder Rerankers</span>
+                <span class="tech-tag">BM25</span>
+                <span class="tech-tag">Cosine Similarity</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <div class="tech-group-label">Vector Databases</div>
+              <div class="tech-group-items">
+                <span class="tech-tag">ChromaDB</span>
+                <span class="tech-tag">FAISS</span>
+                <span class="tech-tag">Pinecone</span>
+                <span class="tech-tag">Qdrant</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <div class="tech-group-label">Vision & Image Gen</div>
+              <div class="tech-group-items">
+                <span class="tech-tag">Florence-2</span>
+                <span class="tech-tag">Stable Diffusion</span>
+                <span class="tech-tag">Z-Image Turbo</span>
+                <span class="tech-tag">LCM</span>
+                <span class="tech-tag">OCR (Textract)</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <div class="tech-group-label">ML Frameworks</div>
+              <div class="tech-group-items">
+                <span class="tech-tag">Transformers</span>
+                <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">TensorFlow</span>
+                <span class="tech-tag">scikit-learn</span>
+                <span class="tech-tag">XGBoost</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <div class="tech-group-label">Orchestration</div>
+              <div class="tech-group-items">
+                <span class="tech-tag">LangChain</span>
+                <span class="tech-tag">LlamaIndex</span>
+                <span class="tech-tag">LangGraph</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <div class="tech-group-label">Backend</div>
+              <div class="tech-group-items">
+                <span class="tech-tag">FastAPI</span>
+                <span class="tech-tag">SQLite</span>
+                <span class="tech-tag">JWT Auth</span>
+                <span class="tech-tag">OAuth</span>
+                <span class="tech-tag">WebSockets</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <div class="tech-group-label">Cloud & MLOps</div>
+              <div class="tech-group-items">
+                <span class="tech-tag">AWS</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">Kubeflow</span>
+                <span class="tech-tag">MLflow</span>
+                <span class="tech-tag">CI/CD</span>
+                <span class="tech-tag">LangFuse</span>
+                <span class="tech-tag">RAGAS</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <div class="tech-group-label">Data Platforms</div>
+              <div class="tech-group-items">
+                <span class="tech-tag">Snowflake</span>
+                <span class="tech-tag">Hive</span>
+              </div>
+            </div>
+            <div class="tech-group">
+              <div class="tech-group-label">Frontend (AI-Assisted)</div>
+              <div class="tech-group-items">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Vite</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Tailwind CSS</span>
+                <span class="tech-tag">HTML/CSS</span>
+                <span class="tech-tag">Node.js</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project 1: RAG Chatbot -->
+    <section class="project" id="rag-chatbot">
+      <div class="project-header">
+        <h2 class="project-title">RAG Chatbot</h2>
+        <span class="project-badge badge-live">Live</span>
+      </div>
+      <p class="project-tagline">248 policy documents. Instant answers. Every claim cited.</p>
+      <p class="project-summary">Built for a policy think tank drowning in PDFs. Researchers spent hours hunting for answers across 248 documents, now they get cited responses in seconds. The system combines semantic search with keyword matching, reranks results for relevance, and streams answers with clickable page references. Admins can swap LLM providers, manage users, and track every query's cost and latency, all without touching code.</p>
+
+      <div class="carousel-container" data-carousel="rag">
+        <div class="carousel-main">
+          <div class="carousel-slide active">
+            <img src="images/rag-chatbot/answers_with_inline_citations.png" alt="RAG Chatbot">
+            <div class="slide-caption">Inline citations [1][2] link directly to source pages in the PDF viewer</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/rag-chatbot/fdr_chatbot_homepage.png" alt="RAG Chatbot Homepage">
+            <div class="slide-caption">Chat interface with 247 documents, category filters, and conversation history</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/rag-chatbot/document_upload_w_realtime_embeddings.png" alt="Document Upload">
+            <div class="slide-caption">Admins upload PDFs; system auto-generates embeddings and enriches metadata</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/rag-chatbot/query_logs_observability.png" alt="Query Logs">
+            <div class="slide-caption">Every query logged: retrieval time, LLM latency, token count, cost per query</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/rag-chatbot/RBAC_page.png" alt="RBAC">
+            <div class="slide-caption">Role-based access control: Basic, Admin, Super Admin with granular permissions</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/rag-chatbot/audit_logs_for_login_and_changes.png" alt="Audit Logs">
+            <div class="slide-caption">Full audit trail: logins, model changes, failed attempts, config updates</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/rag-chatbot/super_admin_page.png" alt="Super Admin">
+            <div class="slide-caption">Configure LLM provider, model, temperature, reasoning effort, and token pricing</div>
+          </div>
+          <button class="carousel-nav prev" onclick="carouselNav('rag', -1)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button class="carousel-nav next" onclick="carouselNav('rag', 1)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          <div class="carousel-counter">1 / 7</div>
+        </div>
+        <div class="carousel-thumbnails">
+          <div class="carousel-thumb active" onclick="carouselGo('rag', 0)"><img src="images/rag-chatbot/answers_with_inline_citations.png" alt=""></div>
+          <div class="carousel-thumb" onclick="carouselGo('rag', 1)"><img src="images/rag-chatbot/fdr_chatbot_homepage.png" alt=""></div>
+          <div class="carousel-thumb" onclick="carouselGo('rag', 2)"><img src="images/rag-chatbot/document_upload_w_realtime_embeddings.png" alt=""></div>
+          <div class="carousel-thumb" onclick="carouselGo('rag', 3)"><img src="images/rag-chatbot/query_logs_observability.png" alt=""></div>
+          <div class="carousel-thumb" onclick="carouselGo('rag', 4)"><img src="images/rag-chatbot/RBAC_page.png" alt=""></div>
+          <div class="carousel-thumb" onclick="carouselGo('rag', 5)"><img src="images/rag-chatbot/audit_logs_for_login_and_changes.png" alt=""></div>
+          <div class="carousel-thumb" onclick="carouselGo('rag', 6)"><img src="images/rag-chatbot/super_admin_page.png" alt=""></div>
+        </div>
+      </div>
+
+      <div class="project-details">
+        <div class="project-points">
+          <h4>Key Features</h4>
+          <ul>
+            <li>Hybrid retrieval: semantic (12 chunks) + BM25 keyword (5 chunks) with Cohere reranking</li>
+            <li>Two-model architecture: fast query analyzer + quality answer model, switchable on-the-fly</li>
+            <li>Clickable citations: every claim linked to source document + page number</li>
+            <li>Full observability: query logs, token tracking, latency metrics, cost per query</li>
+            <li>Enterprise-ready: 3-tier RBAC, audit logs, SSE streaming, dark mode</li>
+          </ul>
+        </div>
+        <div class="project-tech">
+          <h4>Tech Stack</h4>
+          <div class="tech-tags">
+            <span class="tech-tag">ChromaDB</span>
+            <span class="tech-tag">GPT-5-mini</span>
+            <span class="tech-tag">text-embedding-3-small</span>
+            <span class="tech-tag">Cohere Reranker</span>
+            <span class="tech-tag">LiteLLM</span>
+            <span class="tech-tag">BM25</span>
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">SQLite</span>
+            <span class="tech-tag">SSE Streaming</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project 2: Voice AI -->
+    <section class="project" id="voice-ai">
+      <div class="project-header">
+        <h2 class="project-title">Voice AI Platform</h2>
+        <span class="project-badge badge-poc">POC</span>
+      </div>
+      <p class="project-tagline">AI answers your phone. Books appointments. Knows your docs.</p>
+      <p class="project-summary">Businesses miss 62% of inbound calls. This platform answers instantly, 24/7, with sub-1300ms latency. The AI books appointments directly to Google Calendar, answers questions from uploaded docs with 95%+ accuracy, and hands off to humans when needed. Operators see live transcripts and can take over any call from their browser. Every conversation is recorded with separate AI/human tracks for QA.</p>
+
+      <div class="carousel-container" data-carousel="voice">
+        <div class="carousel-main">
+          <div class="carousel-slide active">
+            <img src="images/voice-ai/home_dashboard.png" alt="Voice AI Dashboard">
+            <div class="slide-caption">Dashboard overview: total calls, avg duration, latency metrics, recent activity</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/voice-ai/live_calls_transcripts_and_takeover.png" alt="Live Calls">
+            <div class="slide-caption">Live call transcripts with real-time AI/customer messages and human takeover option</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/voice-ai/call_logs_analytics.png" alt="Call Analytics">
+            <div class="slide-caption">Call history with duration, latency per call, recording status, and playback</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/voice-ai/agent_setup.png" alt="Agent Setup">
+            <div class="slide-caption">Configure voice, personality, and preview the dynamic system prompt with all tools</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/voice-ai/service_setup_calendar_rag_transfer.png" alt="Services">
+            <div class="slide-caption">Per-user service toggles: RAG knowledge base, calendar booking, call transfer</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/voice-ai/doc_upload_for_rag.png" alt="Document Upload">
+            <div class="slide-caption">Upload PDFs to build the knowledge base for AI to answer caller questions</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/voice-ai/oubound_calls.png" alt="Outbound Calls">
+            <div class="slide-caption">Make outbound calls for appointment reminders, follow-ups, and notifications</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/voice-ai/buy_twilio_numbers_via_api.png" alt="Buy Numbers">
+            <div class="slide-caption">Buy and manage Twilio phone numbers directly through the platform</div>
+          </div>
+          <button class="carousel-nav prev" onclick="carouselNav('voice', -1)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button class="carousel-nav next" onclick="carouselNav('voice', 1)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          <div class="carousel-counter">1 / 8</div>
+        </div>
+        <div class="carousel-thumbnails">
+          <div class="carousel-thumb active" onclick="carouselGo('voice', 0)"><img src="images/voice-ai/home_dashboard.png" alt=""></div>
+          <div class="carousel-thumb" onclick="carouselGo('voice', 1)"><img src="images/voice-ai/live_calls_transcripts_and_takeover.png" alt=""></div>
+          <div class="carousel-thumb" onclick="carouselGo('voice', 2)"><img src="images/voice-ai/call_logs_analytics.png" alt=""></div>
+          <div class="carousel-thumb" onclick="carouselGo('voice', 3)"><img src="images/voice-ai/agent_setup.png" alt=""></div>
+          <div class="carousel-thumb" onclick="carouselGo('voice', 4)"><img src="images/voice-ai/service_setup_calendar_rag_transfer.png" alt=""></div>
+          <div class="carousel-thumb" onclick="carouselGo('voice', 5)"><img src="images/voice-ai/doc_upload_for_rag.png" alt=""></div>
+          <div class="carousel-thumb" onclick="carouselGo('voice', 6)"><img src="images/voice-ai/oubound_calls.png" alt=""></div>
+          <div class="carousel-thumb" onclick="carouselGo('voice', 7)"><img src="images/voice-ai/buy_twilio_numbers_via_api.png" alt=""></div>
+        </div>
+      </div>
+
+      <div class="project-details">
+        <div class="project-points">
+          <h4>Key Features</h4>
+          <ul>
+            <li>~2s end-to-end latency with natural interruption handling</li>
+            <li>Automated appointment booking: calendar sync, double-booking prevention, FSM-driven flow</li>
+            <li>95%+ RAG accuracy with TinyBERT reranking for knowledge base Q&A</li>
+            <li>Live call dashboard: real-time transcripts, browser-based takeover, instant call termination</li>
+            <li>Chunk-based recording: no ghost audio, multi-track output (AI/human/mixed)</li>
+          </ul>
+        </div>
+        <div class="project-tech">
+          <h4>Tech Stack</h4>
+          <div class="tech-tags">
+            <span class="tech-tag">OpenAI Realtime API</span>
+            <span class="tech-tag">gpt-4o-transcribe</span>
+            <span class="tech-tag">Twilio WebSocket</span>
+            <span class="tech-tag">FAISS</span>
+            <span class="tech-tag">MiniLM-L6</span>
+            <span class="tech-tag">TinyBERT Reranker</span>
+            <span class="tech-tag">Google Calendar OAuth</span>
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">JWT Auth</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project 3: Self-Hosted AI -->
+    <section class="project" id="self-hosted">
+      <div class="project-header">
+        <h2 class="project-title">Self-Hosted AI Platform</h2>
+        <span class="project-badge badge-demo">Demo</span>
+      </div>
+      <p class="project-tagline">All AI runs locally. Your data never leaves.</p>
+      <p class="project-summary">For organizations that can't send data to OpenAI or Google: healthcare, legal, finance. Every AI model runs on local hardware: Llama for conversations, Florence-2 for image captions, MiniLM for search embeddings, Z-Image for generation. Upload a photo and it's auto-captioned. Search in natural language and get instant results with AI context streaming alongside. Zero cloud dependencies, predictable costs, air-gap ready.</p>
+
+      <div class="carousel-container" data-carousel="selfhosted">
+        <div class="carousel-main">
+          <div class="carousel-slide active">
+            <img src="images/photo-sharing/home_page_myphotos.png" alt="Photo Gallery">
+            <div class="slide-caption">Personal photo gallery with auto-generated AI captions and visibility controls</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/photo-sharing/create_photos_zimage.png" alt="AI Image Generation">
+            <div class="slide-caption">Text-to-image generation with Z-Image Turbo running locally on device</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/photo-sharing/search_w_tags_and_llama_assist.png" alt="AI Search">
+            <div class="slide-caption">Semantic search with Llama 3.2 providing contextual AI assistance</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/photo-sharing/public_photos.png" alt="Public Photos">
+            <div class="slide-caption">Explore public photos from all users with AI-generated captions</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/photo-sharing/shared_w_me_by_others.png" alt="Shared Photos">
+            <div class="slide-caption">Photos shared with you by other users, with permission management</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/photo-sharing/account_settings.png" alt="Settings">
+            <div class="slide-caption">Account settings and profile management</div>
+          </div>
+          <button class="carousel-nav prev" onclick="carouselNav('selfhosted', -1)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button class="carousel-nav next" onclick="carouselNav('selfhosted', 1)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          <div class="carousel-counter">1 / 6</div>
+        </div>
+        <div class="carousel-thumbnails">
+          <div class="carousel-thumb active" onclick="carouselGo('selfhosted', 0)"><img src="images/photo-sharing/home_page_myphotos.png" alt=""></div>
+          <div class="carousel-thumb" onclick="carouselGo('selfhosted', 1)"><img src="images/photo-sharing/create_photos_zimage.png" alt=""></div>
+          <div class="carousel-thumb" onclick="carouselGo('selfhosted', 2)"><img src="images/photo-sharing/search_w_tags_and_llama_assist.png" alt=""></div>
+          <div class="carousel-thumb" onclick="carouselGo('selfhosted', 3)"><img src="images/photo-sharing/public_photos.png" alt=""></div>
+          <div class="carousel-thumb" onclick="carouselGo('selfhosted', 4)"><img src="images/photo-sharing/shared_w_me_by_others.png" alt=""></div>
+          <div class="carousel-thumb" onclick="carouselGo('selfhosted', 5)"><img src="images/photo-sharing/account_settings.png" alt=""></div>
+        </div>
+      </div>
+
+      <div class="project-details">
+        <div class="project-points">
+          <h4>Key Features</h4>
+          <ul>
+            <li>100% local inference: Llama 3.2, Florence-2, MiniLM. Zero cloud API calls</li>
+            <li>Auto-captioning: Florence-2 generates descriptions on upload in background thread</li>
+            <li>Semantic search + AI streaming: photos load instantly, Llama explains results via SSE</li>
+            <li>Text-to-image: Z-Image Turbo (4-bit quantized, Apple Silicon optimized)</li>
+            <li>Privacy controls: private/public/shared visibility, HIPAA/compliance ready</li>
+          </ul>
+        </div>
+        <div class="project-tech">
+          <h4>Tech Stack</h4>
+          <div class="tech-tags">
+            <span class="tech-tag">Llama 3.2</span>
+            <span class="tech-tag">Florence-2</span>
+            <span class="tech-tag">Z-Image Turbo</span>
+            <span class="tech-tag">MiniLM-L6</span>
+            <span class="tech-tag">Ollama</span>
+            <span class="tech-tag">MFLUX</span>
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">React + Tailwind</span>
+            <span class="tech-tag">SQLite</span>
+            <span class="tech-tag">SSE Streaming</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p class="footer-cta">Open to AI/ML leadership roles and interesting problems.</p>
+    <p class="footer-note">I built everything you see here. Live demos available upon request.</p>
+    <a href="mailto:sivakanth.work@gmail.com" class="footer-email">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      sivakanth.work@gmail.com
+    </a>
+    <p class="footer-copyright">&copy; 2026 Siva Kanth. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Carousel state
+    const carousels = {
+      rag: { current: 0, total: 7, timer: null },
+      voice: { current: 0, total: 8, timer: null },
+      selfhosted: { current: 0, total: 6, timer: null }
+    };
+
+    const AUTO_ADVANCE_DELAY = 4000;
+
+    function carouselGo(id, index) {
+      const state = carousels[id];
+      state.current = index;
+      updateCarousel(id);
+      resetAutoAdvance(id);
+    }
+
+    function carouselNav(id, direction) {
+      const state = carousels[id];
+      state.current = (state.current + direction + state.total) % state.total;
+      updateCarousel(id);
+      resetAutoAdvance(id);
+    }
+
+    function updateCarousel(id) {
+      const state = carousels[id];
+      const container = document.querySelector(`[data-carousel="${id}"]`);
+
+      // Update slides (image + caption together)
+      const slides = container.querySelectorAll('.carousel-slide');
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === state.current);
+      });
+
+      // Update thumbnails
+      const thumbs = container.querySelectorAll('.carousel-thumb');
+      thumbs.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === state.current);
+      });
+
+      // Update counter
+      const counter = container.querySelector('.carousel-counter');
+      counter.textContent = `${state.current + 1} / ${state.total}`;
+    }
+
+    function startAutoAdvance(id) {
+      const state = carousels[id];
+      state.timer = setInterval(() => {
+        state.current = (state.current + 1) % state.total;
+        updateCarousel(id);
+      }, AUTO_ADVANCE_DELAY);
+    }
+
+    function resetAutoAdvance(id) {
+      const state = carousels[id];
+      if (state.timer) clearInterval(state.timer);
+      startAutoAdvance(id);
+    }
+
+    // Pause on hover
+    document.querySelectorAll('.carousel-container').forEach(container => {
+      const id = container.dataset.carousel;
+
+      container.addEventListener('mouseenter', () => {
+        if (carousels[id].timer) {
+          clearInterval(carousels[id].timer);
+          carousels[id].timer = null;
+        }
+      });
+
+      container.addEventListener('mouseleave', () => {
+        startAutoAdvance(id);
+      });
+    });
+
+    // Tech stack toggle
+    function toggleTechStack() {
+      const techFull = document.getElementById('techFull');
+      techFull.classList.toggle('expanded');
+    }
+
+    // Theme toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
+
+    // Initialize
+    (function() {
+      // Load theme
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+
+      // Start carousels
+      Object.keys(carousels).forEach(id => {
+        startAutoAdvance(id);
+      });
+    })();
+  </script>
+
+</body>
+</html>
