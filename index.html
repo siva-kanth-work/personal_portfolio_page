@@ -701,9 +701,46 @@
         width: 60px;
         height: 40px;
       }
+
+      /* Show nav buttons always on touch devices (no hover) */
+      .carousel-nav {
+        opacity: 1;
+        width: 32px;
+        height: 32px;
+      }
+
+      .slide-caption {
+        font-size: 0.75rem;
+        padding: 8px 12px;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+      }
     }
 
     @media (max-width: 480px) {
+      .carousel-nav {
+        width: 28px;
+        height: 28px;
+      }
+
+      .carousel-nav svg {
+        width: 12px;
+        height: 12px;
+      }
+
+      .carousel-thumbnails {
+        gap: 4px;
+      }
+
+      .carousel-thumb {
+        width: 48px;
+        height: 32px;
+      }
+
+      .slide-caption {
+        font-size: 0.7rem;
+      }
       .header-left {
         flex-direction: column;
         gap: 4px;
