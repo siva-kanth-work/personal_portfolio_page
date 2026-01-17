@@ -1190,16 +1190,17 @@
 
     function carouselGo(id, index) {
       const state = carousels[id];
+      if (index < 0 || index >= state.total) return;
       state.current = index;
       updateCarousel(id);
-      resetAutoAdvance(id);
+      startAutoAdvance(id);
     }
 
     function carouselNav(id, direction) {
       const state = carousels[id];
       state.current = (state.current + direction + state.total) % state.total;
       updateCarousel(id);
-      resetAutoAdvance(id);
+      startAutoAdvance(id);
     }
 
     function updateCarousel(id) {
@@ -1232,12 +1233,6 @@
       }, AUTO_ADVANCE_DELAY);
     }
 
-    function resetAutoAdvance(id) {
-      const state = carousels[id];
-      if (state.timer) clearInterval(state.timer);
-      startAutoAdvance(id);
-    }
-
     // Pause on hover
     document.querySelectorAll('.carousel-container').forEach(container => {
       const id = container.dataset.carousel;
@@ -1268,6 +1263,20 @@
       html.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
     }
+
+    // Pause carousels when tab is hidden
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        Object.keys(carousels).forEach(id => {
+          if (carousels[id].timer) {
+            clearInterval(carousels[id].timer);
+            carousels[id].timer = null;
+          }
+        });
+      } else {
+        Object.keys(carousels).forEach(id => startAutoAdvance(id));
+      }
+    });
 
     // Initialize
     (function() {
