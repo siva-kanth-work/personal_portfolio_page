@@ -1225,6 +1225,7 @@
 
     function startAutoAdvance(id) {
       const state = carousels[id];
+      if (state.timer) clearInterval(state.timer);
       state.timer = setInterval(() => {
         state.current = (state.current + 1) % state.total;
         updateCarousel(id);
